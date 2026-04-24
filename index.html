@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Johanes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Arthur Morgan</a>
+        <div class="nav-links">
+            <a href="#proyek">Proyek</a>
+            <a href="#kontak">Kontak</a>
+        </div>
+    </nav>
+
+    <div class="container animate-fade">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Arthur <br><span>Morgan</span></h1>
+                <p>Arthur Morgan adalah protagonis dari Red Dead Redemption 2 (2018), yang berperan sebagai penegak hukum utama dan letnan paling setia kepada Dutch van der Linde di geng Van der Linde.</p>
+                <a href="#kontak" class="btn">Mari Berdiskusi</a>
+            </div>
+            <div class="hero-image">
+                <img src="arthur.jpg" alt="Foto Profil">
+            </div>
+        </section>
+
+        <div class="section-alternate">
+            <h2 id="proyek" class="section-title" style="margin-top: 0;">Proyek Pilihan</h2>
+            
+            <div class="portfolio-grid" id="daftar-proyek">
+                </div>
+        </div>
+
+        <h2 id="kontak" class="section-title">Hubungi Saya</h2>
+        <div class="contact-links">
+            <a href="mailto:jojositohangg@gmail.com">Email</a>
+            <a href="https://www.instagram.com/jhhnss._" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@s1lentjojo" target="_blank">TikTok</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Johanes</p>
+    </footer>
+
+    <script src="data.js"></script>
+
+    <script>
+        const bagianProyek = document.getElementById('daftar-proyek');
+        let htmlCard = '';
+
+        for (const [id, data] of Object.entries(databaseProyek)) {
+            
+            let deskripsiSingkat = data.latar.substring(0, 90) + "...";
+
+            htmlCard += `
+                <div class="card">
+                    <img src="${data.gambar}" alt="${data.judul}">
+                    <div class="card-content">
+                        <h3>${data.judul}</h3>
+                        <p>${deskripsiSingkat}</p>
+                        <a href="detail.html?id=${id}" class="btn btn-outline" style="text-align: center; display: block; margin-top: 15px;">Lihat Detail</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        bagianProyek.innerHTML = htmlCard;
+    </script>
+
+</body>
+</html>
